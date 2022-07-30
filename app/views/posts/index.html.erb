@@ -1,0 +1,9 @@
+<% @posts.each do |post| %>
+    <div>
+      <%= post.title %>
+      <%= post.body%>
+      <% if current_user != nil %>
+        <%= post.user.email %>
+      <% end %>
+    </div>
+<% end %>
