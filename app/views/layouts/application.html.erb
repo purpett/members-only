@@ -17,6 +17,14 @@
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
+
+    <% if current_user %> 
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-outline-warning" %>
+    <% elsif controller_name != "sessions" %>
+      <%= link_to "Sign in", new_user_session_path, class: "btn btn-outline-warning" %>
+    <% end%>
+
+
     <%= yield %>
   </body>
 </html>

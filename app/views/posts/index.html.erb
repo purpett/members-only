@@ -2,8 +2,8 @@
     <div>
       <%= post.title %>
       <%= post.body%>
-      <% if current_user != nil %>
-        <%= post.user.email %>
+      <% if current_user %>
+        <%= post.user.username %>
       <% end %>
     </div>
 <% end %>

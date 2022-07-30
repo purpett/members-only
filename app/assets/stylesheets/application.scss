@@ -1,0 +1,8 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+$yellow: rgb(173,153,97);
+
+@import "bootstrap";
+
+body {
+    background-color: rgb(25,35,31);
+}
