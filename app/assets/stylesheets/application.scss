@@ -1,11 +1,15 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 $yellow: rgb(173,153,97);
 $light: #eae6e1;
+$green: #19231f;
+$form-check-input-checked-bg-color: $yellow;
+$input-btn-focus-box-shadow: 0 0 0 0.25rem rgba(lighten($yellow, 30%), .3);
+$input-focus-border-color: $light;
 
 @import "bootstrap";
 
 body {
-    background-color: #19231f;
+    background-color: $green;
     color: $yellow;
 }
 

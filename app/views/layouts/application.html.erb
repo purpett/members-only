@@ -18,11 +18,16 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end gap-3" id="navbarSupportedContent">
-          <%= link_to "Sign up",  new_user_registration_path, class: "btn btn-outline-warning"%>
+          
           <% if current_user %> 
-            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-outline-warning" %>
-          <% elsif controller_name != "sessions" %>
-            <%= link_to "Sign in", new_user_session_path, class: "btn btn-outline-warning" %>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
+          <% else %>
+            <% if controller_name != "sessions" %>
+              <%= link_to "Sign in", new_user_session_path, class: "btn btn-warning text-light" %>
+            <% end %>
+            <% if controller_name != "registrations" %>
+              <%= link_to "Sign up",  new_user_registration_path, class: "btn btn-warning text-light" %>
+            <% end %>
           <% end%>
         </div>
       </div>
