@@ -20,7 +20,8 @@
         <div class="collapse navbar-collapse justify-content-end gap-3" id="navbarSupportedContent">
           
           <% if current_user %> 
-            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
+            <%= link_to "New post", new_post_path, class: "btn btn-warning text-light" %>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-warning text-light" %>
           <% else %>
             <% if controller_name != "sessions" %>
               <%= link_to "Sign in", new_user_session_path, class: "btn btn-warning text-light" %>
