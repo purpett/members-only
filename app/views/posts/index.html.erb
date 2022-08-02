@@ -1,17 +1,21 @@
-<% @posts.each do |post| %>
-  <div class="card mb-3 bg-light">
-    <div class="card-body">
-      <h5 class="card-title"> <%= post.title %> </h5>
-      <h6 class="card-subtitle mb-2 text-muted">
-        <% if current_user %>
-          <%= post.user.username %>
-        <% end %>
-      </h6>
-      <p class="card-text"><%= post.body%></p>
-    </div>
-    <div class="card-footer text-end py-0">
-      <%= link_to edit_post_path(post), class: "card-link" do %><%= image_tag "pencil-outline.svg", title: "Edit post", height: 20 %><% end %>
-      <%= button_to post_path(post), method: :delete, class: "card-link btn btn-link ", form_class: "d-inline" do %><%= image_tag "trash-can-outline.svg", title: "Delete post", height: 20 %><% end %>
-    </div>
+<div class="d-flex flex-column align-items-center">
+  <div class="col-9">
+    <% @posts.each do |post| %>
+      <div class="card mb-3 bg-light">
+        <div class="card-body">
+          <h5 class="card-title"> <%= post.title %> </h5>
+          <h6 class="card-subtitle mb-2 text-muted small">
+            <% if current_user %>
+              <%= post.user.username %>
+            <% end %>
+          </h6>
+          <p class="card-text text-dark"><%= post.body%></p>
+        </div>
+        <div class="card-footer text-end py-0">
+          <%= link_to edit_post_path(post), class: "card-link" do %><%= image_tag "pencil-outline.svg", title: "Edit post", height: 20 %><% end %>
+          <%= button_to post_path(post), method: :delete, class: "card-link btn btn-link ", form_class: "d-inline" do %><%= image_tag "trash-can-outline.svg", title: "Delete post", height: 20 %><% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
