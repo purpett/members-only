@@ -1,0 +1,12 @@
+<%= form_with model: @post do |form| %>
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  <% end %>
+  <%= form.label :title %>
+  <div><%= form.text_field :title %></div>
+  <%= form.label :body %>
+  <div><%= form.text_area :body, size: "60x10" %></div>
+  <div><%= form.submit %></div>
+<% end %>

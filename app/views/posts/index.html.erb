@@ -12,8 +12,10 @@
           <p class="card-text text-dark"><%= post.body%></p>
         </div>
         <div class="card-footer text-end py-0">
-          <%= link_to edit_post_path(post), class: "card-link" do %><%= image_tag "pencil-outline.svg", title: "Edit post", height: 20 %><% end %>
-          <%= button_to post_path(post), method: :delete, class: "card-link btn btn-link ", form_class: "d-inline" do %><%= image_tag "trash-can-outline.svg", title: "Delete post", height: 20 %><% end %>
+          <% if current_user == post.user %>
+            <%= link_to edit_post_path(post), class: "card-link" do %><%= image_tag "pencil-outline.svg", title: "Edit post", height: 20 %><% end %>
+            <%= button_to post_path(post), method: :delete, class: "card-link btn btn-link ", form_class: "d-inline" do %><%= image_tag "trash-can-outline.svg", title: "Delete post", height: 20 %><% end %>
+          <%end%>
         </div>
       </div>
     <% end %>
