@@ -11,20 +11,31 @@
   </head>
 
   <body>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+    <nav class="navbar navbar-expand-lg bg-light mb-3">
+      <div class="container-fluid">
+        <%= link_to "membersonly", root_path, class: "navbar-brand me-auto text-warning" %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end gap-3" id="navbarSupportedContent">
+          <%= link_to "Sign up",  new_user_registration_path, class: "btn btn-outline-warning"%>
+          <% if current_user %> 
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-outline-warning" %>
+          <% elsif controller_name != "sessions" %>
+            <%= link_to "Sign in", new_user_session_path, class: "btn btn-outline-warning" %>
+          <% end%>
+        </div>
+      </div>
+    </nav>
 
-    <% if current_user %> 
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-outline-warning" %>
-    <% elsif controller_name != "sessions" %>
-      <%= link_to "Sign in", new_user_session_path, class: "btn btn-outline-warning" %>
-    <% end%>
-
-
-    <%= yield %>
+    <div class="container">  
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
