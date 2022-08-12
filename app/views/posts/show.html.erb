@@ -1,5 +1,10 @@
 <div class="d-flex flex-column align-items-center">
   <div class="col-9">
       <%= render 'card', post: @post %>
+      <div>
+        <% @post.comments.each do |comment| %>
+          <%= comment.body %>
+        <% end %>
+      </div>
   </div>
 </div>

@@ -10,7 +10,11 @@
   </div>
   <div class="card-footer d-flex">
     <div class="p-1 flex-grow-1">
-      <%= link_to post_comments_path(post), class: "card-link" do %><%= image_tag "comment-outline.svg", title: "Comments", height: 20 %><% end %>
+      <% if action_name == "show" %>
+        <%= link_to new_post_comment_path(post), class: "card-link" do %><%= image_tag "comment-outline.svg", title: "Leave a comment", height: 20 %><% end %>
+      <% else %>
+        <%= link_to post_path(post), class: "card-link" do %><%= image_tag "comment-outline.svg", title: "Comments", height: 20 %><% end %>
+      <% end %>
     </div>
     <div class="p-0">
       <% if current_user == post.user %>
