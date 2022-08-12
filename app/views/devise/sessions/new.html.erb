@@ -2,7 +2,7 @@
   <div class="col-4">
     <h2>Sign in</h2>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
       <div class="mb-3">
         <%= f.label :email, class: "form-label" %><br />
         <%= f.email_field :email, class: "form-control bg-light", autofocus: true, autocomplete: "email" %>
