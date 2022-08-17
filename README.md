@@ -1,25 +1,17 @@
-# README
+# membersonly
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**membersonly** is a simple blog/commenting platform, where only signed in users are able to view the authors of other posts and comments.
 
-Things you may want to cover:
+## Development
 
-* Ruby version
+Make sure you have Ruby 3.1.1 and PostgreSQL installed, then run:
 
-* System dependencies
+```
+bundle install
+bundle exec rails db:create db:migrate
+bundle exec rails server
+```
 
-* Configuration
+## Deployment
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# members-only
+The application is ready to be deployed on Heroku. You can see a demo at https://stark-bastion-30084.herokuapp.com
