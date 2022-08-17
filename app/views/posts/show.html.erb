@@ -1,25 +1,6 @@
 <div class="d-flex flex-column align-items-center">
   <div class="col-9">
     <%= render 'card', post: @post %>
-    <div class="col-11 ms-4">
-      <h6 class="text-warning">Comments</h6>
-      <% @post.comments.each do |comment| %>
-        <div class="card mb-1 bg-light d-flex flex-row align-items-center"> 
-          <div class="card-body">
-            <h6 class="card-subtitle mb-0 text-warning small">
-              <% if current_user %>
-                <%= comment.user.username %>
-              <% end %>
-            </h6>
-            <p class="card-text text-dark"><%= comment.body%></p>
-          </div>
-          <div class="p-0 text-end">
-            <% if current_user == comment.user %>
-              <%= button_to post_comment_path(@post, comment), method: :delete, class: "card-link btn btn-link ", form_class: "d-inline" do %><%= image_tag "trash-can-outline.svg", title: "Delete comment", height: 20 %><% end %>
-            <%end%>
-          </div>
-        </div>
-      <% end %>
-    </div>
+    <%= render 'comments/comment_card' %>
   </div>
 </div>
