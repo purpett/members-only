@@ -14,4 +14,4 @@ bundle exec rails server
 
 ## Deployment
 
-The application is ready to be deployed on Heroku. You can see a demo at https://stark-bastion-30084.herokuapp.com
+The application is ready to be deployed on Fly.io. You can see a demo at https://broken-water-2164.fly.dev/
